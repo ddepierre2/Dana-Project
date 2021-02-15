@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <title>Weather</title>
+  </head>
+  <body>
+  <div class="container">
+   <h1 class="title">Weather of the Day</h1>
+   <form id="location-form">
+    <input type="search" id="location-search" placeholder="Enter your city">
+    <input type="submit" value="Search">
+    <button id="current-location-button">Current Location</button>
+  </form>
+
+
+
+    <section class="current-location">
+     <h2 class="header" id="searched-city">
+       Current Location
+      </h2>
+
+      <div class="row">
+      <div class="card col-4" style="width: 18rem">
+        <h3> Date and Time</h3>
+          <div class="card-body">
+              <p class="card-text" id="current-date">
+            January 23, 2021
+              </p>
+              <p id="current-time">
+            16:06
+              </p>
+          </div>
+        </div>
+        <div class="card col-4" style="width: 18rem">
+          <h3>Temperature</h3>
+        <div class="card-body">
+            <p class="card-text" id="current-temp">
+            <span id="now-temp"> 
+             -10 
+            </span>
+            <span class="units">
+              <a href="#" id="celsius">°C </a> |
+              <a href="#" id="fahrenheit">°F </a>
+             </span>
+            </p>
+        </div>
+        </div>
+       <div class="card col-4" style="width: 18rem;">
+        <div class="card-header">
+          <h4>Sunrise:</h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+             6:25
+          </li>
+      </ul>
+      <div class="card-header">
+          <h4>Sunset:</h4>
+        </div>
+          <li class="list-group-item">
+             19:25
+          </li>
+        </ul>
+      </div>
+      </div>
+   </section>
+
+
+
+
+<section class="forecast">
+    <h2 class="header">5-Day Forecast</h2>
+     <div class="row">
+      <div class="col-8 card" style="width: 14rem">
+      <div class="card-body">
+        <p class="card-text">
+          <h4>Monday</h4>
+           -10°C <br />
+           Real Feel: -15°C <br />
+           Wind Speed: 14 KM/h
+        </p>
+      </div>
+      </div>
+        <div class="col-8 card" style="width: 14rem">
+        <div class="card-body">
+          <p class="card-text">
+            <h4>Tuesday</h4>
+            -10°C <br />
+            Real Feel: -15°C <br />
+            Wind Speed: 14 KM/h
+          </p>
+        </div>
+        </div>
+       <div class="col-8 card" style="width: 14rem">
+        <div class="card-body">
+          <p class="card-text">
+           <h4>Wednesday</h4>
+            -10°C <br />
+            Real Feel: -15°C <br />
+            Wind Speed: 14 KM/h
+          </p>
+        </div>
+        </div>
+        <div class="col-8 card" style="width: 14rem">
+        <div class="card-body">
+          <p class="card-text">
+           <h4>Thursday</h4>
+            -10°C <br />
+            Real Feel: -15°C <br />
+            Wind Speed: 14 KM/h
+          </p>
+        </div>
+        </div>
+        <div class="col-8 card" style="width: 14rem">
+        <div class="card-body">
+          <p class="card-text">
+            <h4>Friday</h4>
+            -10°C <br />
+            Real Feel: -15°C <br />
+            Wind Speed: 14 KM/h
+          </p>
+        </div>
+        </div>
+      </section>
+  </div>
+  <script src="src/java.js"></script>
+  </body>
+</html>
