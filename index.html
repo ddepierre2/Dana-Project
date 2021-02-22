@@ -12,6 +12,7 @@
     />
     <title>Weather App</title>
   </head>
+
   <body>
   <div class="container">
    <h1 class="title">Weather of the Day</h1>
@@ -38,10 +39,12 @@
               </p>
           </div>
         </div>
+
         <div class="card col-4" style="width: 18rem">
           <h3>Temperature</h3>
         <div class="card-body">
-            <p class="card-text" id="current-temp">
+          <ul>
+            <li class="card-text" id="current-temp">
             <span id="now-temp"> 
              -10 
             </span>
@@ -49,9 +52,32 @@
               <a href="#" id="celsius">°C </a> |
               <a href="#" id="fahrenheit">°F </a>
              </span>
-            </p>
+            </li>
+
+             <li class="card-text" id="current-weather-description">
+            <span id="now-weather-description">
+            Clear</span>
+            </li>
+
+            <li class="card-text" id="current-precipitation">
+            <span> 
+             Precipitation: 
+            </span>
+            <span id="now-precipitation">
+              80</span>%
+            </li>
+
+           <li class="card-text" id="current-wind-speed">
+            <span> 
+             Wind Speed: 
+            </span>
+            <span id="now-wind-speed">
+              120</span>KM/h
+            </li>
+          </ul>
         </div>
         </div>
+
        <div class="card col-4" style="width: 18rem;">
         <div class="card-header">
           <h4>Sunrise:</h4>
