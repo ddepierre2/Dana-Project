@@ -22,3 +22,7 @@ h3 {
   font-weight: bold;
   text-align: center;
 }
+.temperature-description-box {
+  list-style: none;
+  padding: 0;
+}
