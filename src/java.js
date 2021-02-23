@@ -51,7 +51,10 @@ let dateElement = document.querySelector("#current-date");
 let iconElement = document.querySelector("#weather-icon");
 let sunriseElement = document.querySelector("#sunrise");
 let sunsetElement = document.querySelector("#sunset");
-temperatureElement.innerHTML = Math.round(response.data.main.temp);
+
+celsiusTemperature = response.data.main.temp;
+
+temperatureElement.innerHTML = Math.round(celsiusTemperature);
 cityElement.innerHTML = response.data.name;
 humidityElement.innerHTML = response.data.main.humidity;
 windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
@@ -66,7 +69,6 @@ sunsetElement.innerHTML = formatDate(response.data.sys.sunset * 1000);
 function search(city){
 let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
 axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -76,7 +78,20 @@ function searchCity(event){
   search(searchInput.value);
 }
 
+function showFahrenheitTemp(event){
+  event.preventDefault();
+  fahrenheitTemperature = (celsiusTemperature * 9)/5 +32;
+  let temperatureElement = document.querySelector("#now-temp");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let celsiusTemperature = null;
+
+
 let form = document.querySelector("#location-form");
 form.addEventListener("submit", searchCity);
 
+let fahrenheitSearch = document.querySelector("#fahrenheit");
+fahrenheitSearch.addEventListener("click", showFahrenheitTemp);
 
+search ("Charlemagne");
