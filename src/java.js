@@ -85,6 +85,12 @@ function showFahrenheitTemp(event){
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
+function showCelsiusTemp(event){
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#now-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
 let celsiusTemperature = null;
 
 
@@ -93,5 +99,10 @@ form.addEventListener("submit", searchCity);
 
 let fahrenheitSearch = document.querySelector("#fahrenheit");
 fahrenheitSearch.addEventListener("click", showFahrenheitTemp);
+
+
+let celsiusSearch = document.querySelector("#celsius");
+celsiusSearch.addEventListener("click", showCelsiusTemp);
+
 
 search ("Charlemagne");
