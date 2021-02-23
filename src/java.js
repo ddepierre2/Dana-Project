@@ -9,7 +9,25 @@ let date = new Date(timestamp);
     "Friday",
     "Saturday"
   ];
+ let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
 let currentDay = days[date.getDay()];
+let currentDate = date.getDate();
+let currentMonth = months[date.getMonth()];
+
+let currentYear = date.getFullYear();
 let hours = date.getHours();
 if (hours <10){
   hours = `0${hours}`;
@@ -18,10 +36,11 @@ let minutes = date.getMinutes();
 if (minutes <10){
   minutes = `0${minutes}`;
 }
-return `${currentDay} ${hours}:${minutes}`;
+
+  let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${hours}:${minutes}`;
+  return formattedDate;
+
 }
-
-
 
 function displayTemperature(response){
 console.log(response.data);
