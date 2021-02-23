@@ -95,6 +95,20 @@ function showCelsiusTemp(event){
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+function findLocation (position) {
+let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
+let lat = position.coords.latitude;
+let lon = position.coords.longitude;
+let unit = `metric`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+axios.get(apiUrl).then(displayTemperature);
+}
+
+function findCurrentPosition(){
+navigator.geolocation.getCurrentPosition(findLocation);
+}
+
+
 let celsiusTemperature = null;
 
 
@@ -108,5 +122,8 @@ fahrenheitSearch.addEventListener("click", showFahrenheitTemp);
 let celsiusSearch = document.querySelector("#celsius");
 celsiusSearch.addEventListener("click", showCelsiusTemp);
 
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", findCurrentPosition);
 
-search ("Charlemagne");
+
+search ("Laval");
