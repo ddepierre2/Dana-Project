@@ -39,8 +39,9 @@ weatherDescriptionElement.innerHTML = response.data.weather[0].description;
 dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
-let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3"
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Laval&appid=${apiKey}&units=metric`;
+let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
+let city = "Montreal";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
 
