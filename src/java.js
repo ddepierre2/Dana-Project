@@ -63,10 +63,20 @@ sunriseElement.innerHTML = formatDate(response.data.sys.sunrise * 1000);
 sunsetElement.innerHTML = formatDate(response.data.sys.sunset * 1000);
 }
 
+function search(city){
 let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
-let city = "Montreal";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
+}
+
+function searchCity(event){
+  event.preventDefault();
+  let searchInput = document.querySelector("#location-search");
+  search(searchInput.value);
+}
+
+let form = document.querySelector("#location-form");
+form.addEventListener("submit", searchCity);
 
 
