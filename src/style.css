@@ -28,6 +28,7 @@ h3 {
 .temperature-description-box {
   list-style: none;
   padding: 0;
+  text-transform: capitalize;
 }
 .weather-icon {
   color: purple;
@@ -65,4 +66,7 @@ h3 {
 }
 .transparency {
   background-color: transparent;
+}
+#now-temp {
+  font-size: x-large;
 }

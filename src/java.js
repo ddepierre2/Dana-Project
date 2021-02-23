@@ -1,70 +1,21 @@
-function showTemperature(response) {
-  let citySearch = document.querySelector("#searched-city");
-  citySearch.innerHTML = `${response.data.name}`;
-
-  let temperature = Math.round(response.data.main.temp);
-  let currentTemperature = document.querySelector("#now-temp");
-  currentTemperature.innerHTML = `${temperature}`;
-}
-function showCity(city) {
-  let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
-  let unit = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-
-  axios.get(apiUrl).then(showTemperature);
+function displayTemperature(response){
+console.log(response.data);
+let temperatureElement = document.querySelector("#now-temp");
+let cityElement = document.querySelector("#searched-city");
+let weatherDescriptionElement = document.querySelector("#now-weather-description")
+let humidityElement = document.querySelector("#now-humidity");
+let windSpeedElement = document.querySelector("#now-wind-speed");
+temperatureElement.innerHTML = Math.round(response.data.main.temp);
+cityElement.innerHTML = response.data.name;
+humidityElement.innerHTML = response.data.main.humidity;
+windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
+weatherDescriptionElement.innerHTML = response.data.weather[0].description;
 }
 
-function searchCity(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#location-search");
-  showCity(searchInput.value);
-}
-let form = document.querySelector("#location-form");
-form.addEventListener("submit", searchCity);
+let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3"
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Laval&appid=${apiKey}&units=metric`;
 
-
-function findLocation (position) {
-let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
-let lat = position.coords.latitude;
-let lon = position.coords.longitude;
-let unit = `metric`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
-axios.get(apiUrl).then(showTemperature);
-}
-
-function findCurrentPosition(){
-navigator.geolocation.getCurrentPosition(findLocation);
-}
-
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", findCurrentPosition);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+axios.get(apiUrl).then(displayTemperature);
 
 
 

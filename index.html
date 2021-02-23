@@ -27,9 +27,7 @@
 
     <section class="current-location">
       <div class="container">
-     <h2 class="header" id="searched-city">
-       Enter a city in the search bar
-      </h2>
+     <h2 class="header" id="searched-city"></h2>
 
       <div class="row">
       <div class="card col transparency">
@@ -45,12 +43,13 @@
            <div class="row">
           <div class="card-body col-6 weather-icon">
             <i class="fas fa-sun"></i>
+            <span id=""></span>
           </div>
 
         <div class="card-body col-6">
           <ul class="temperature-description-box">
             <li class="card-text" id="current-temp">
-            <span id="now-temp"></span>
+            <strong id="now-temp"></strong>
             <span class="units">
               <a href="#" id="celsius">°C </a> |
               <a href="#" id="fahrenheit">°F </a>
@@ -60,21 +59,24 @@
              <li class="card-text" id="current-weather-description">
             <span id="now-weather-description"></span>
             </li>
-
+            <li class="card-text" id="current-humidity">
+            <span> 
+             Humidity: 
+            </span>
+            <span id="now-humidity"></span>%
+            </li>
             <li class="card-text" id="current-precipitation">
             <span> 
              Precipitation: 
             </span>
-            <span id="now-precipitation">
-              80</span>%
+            <span id="now-precipitation"></span>%
             </li>
 
            <li class="card-text" id="current-wind-speed">
             <span> 
              Wind Speed: 
             </span>
-            <span id="now-wind-speed">
-              120 </span>KM/h
+            <span id="now-wind-speed"></span> KM/h
             </li>
           </ul>
         </div>
