@@ -70,8 +70,16 @@ a {
   cursor: default;
   text-decoration: none;
 }
+a:hover {
+  color: #f2f2f1;
+  cursor: default;
+  text-decoration: none;
+}
+
 .active {
-  background-color: #321970;
-  color: #e6b6e5;
-  cursor: pointer;
+  color: #f2f2f1;
+  cursor: default;
+}
+.active:hover {
+  color: black;
 }
