@@ -36,9 +36,8 @@ if (minutes <10){
   minutes = `0${minutes}`;
 }
 
-let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear}`;
-let formattedTime = `${hours}:${minutes}`;
-  return `${formattedDate}, ${formattedTime}`;
+let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${hours}:${minutes}`;
+return formattedDate;
 }
 
 function displayTemperature(response){
