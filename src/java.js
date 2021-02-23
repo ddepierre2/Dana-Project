@@ -26,7 +26,6 @@ let date = new Date(timestamp);
 let currentDay = days[date.getDay()];
 let currentDate = date.getDate();
 let currentMonth = months[date.getMonth()];
-
 let currentYear = date.getFullYear();
 let hours = date.getHours();
 if (hours <10){
@@ -37,13 +36,12 @@ if (minutes <10){
   minutes = `0${minutes}`;
 }
 
-  let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${hours}:${minutes}`;
-  return formattedDate;
-
+let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear}`;
+let formattedTime = `${hours}:${minutes}`;
+  return `${formattedDate}, ${formattedTime}`;
 }
 
 function displayTemperature(response){
-console.log(response.data);
 let temperatureElement = document.querySelector("#now-temp");
 let cityElement = document.querySelector("#searched-city");
 let weatherDescriptionElement = document.querySelector("#now-weather-description")
