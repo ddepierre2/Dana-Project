@@ -80,14 +80,18 @@ function searchCity(event){
 
 function showFahrenheitTemp(event){
   event.preventDefault();
-  fahrenheitTemperature = (celsiusTemperature * 9)/5 +32;
   let temperatureElement = document.querySelector("#now-temp");
+  celsiusSearch.classList.remove("active");
+  fahrenheitSearch.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9)/5 +32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function showCelsiusTemp(event){
   event.preventDefault();
   let temperatureElement = document.querySelector("#now-temp");
+  fahrenheitSearch.classList.remove("active");
+  celsiusSearch.classList.add("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
