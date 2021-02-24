@@ -28,7 +28,7 @@ let currentDate = date.getDate();
 let currentMonth = months[date.getMonth()];
 let currentYear = date.getFullYear();
 
-return `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${formatHours(timestamp)}`;
+return `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear}`;
 }
 
 function formatHours(timestamp){
@@ -51,6 +51,7 @@ let weatherDescriptionElement = document.querySelector("#now-weather-description
 let humidityElement = document.querySelector("#now-humidity");
 let windSpeedElement = document.querySelector("#now-wind-speed");
 let dateElement = document.querySelector("#current-date");
+let hourElement = document.querySelector("#current-time");
 let iconElement = document.querySelector("#weather-icon");
 let sunriseElement = document.querySelector("#sunrise");
 let sunsetElement = document.querySelector("#sunset");
@@ -63,6 +64,7 @@ humidityElement.innerHTML = response.data.main.humidity;
 windSpeedElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
 weatherDescriptionElement.innerHTML = response.data.weather[0].description;
 dateElement.innerHTML = formatDate(response.data.dt * 1000);
+hourElement.innerHTML = formatHours(response.data.dt * 1000);
 iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
 sunriseElement.innerHTML = formatHours(response.data.sys.sunrise * 1000);
