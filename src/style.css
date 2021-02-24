@@ -83,3 +83,9 @@ a:hover {
 .active:hover {
   color: black;
 }
+.open-source-info:hover {
+  color: black;
+  cursor: pointer;
+  transition: 200ms;
+  text-decoration: underline;
+}
