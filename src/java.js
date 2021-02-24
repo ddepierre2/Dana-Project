@@ -76,16 +76,16 @@ let forecastElement = document.querySelector("#forecast");
 forecastElement.innerHTML = null;
 let forecast = null;
 
-  for (let index = 0; index < 5; index++) {
+  for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
-      <div class="card col transparency">
+      <div class="card col-2 float-left transparency">
         <h3>
         ${formatHours(forecast.dt * 1000)}
         </h3>
         <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
           alt="icon"  />
-        <div class="weather-forecast-temperature">
+        <div class="col weather-forecast-temperature transparency">
           <strong>${Math.round(forecast.main.temp_max)}°C
           </strong> | ${Math.round(forecast.main.temp_min)}°C
         </div>
