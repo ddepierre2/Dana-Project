@@ -30,7 +30,7 @@
      <h2 class="header" id="searched-city"></h2>
 
       <div class="row">
-      <div class="card col transparency">
+      <div class="card col-3 transparency">
         <h3> Date and Time</h3>
           <div class="card-body">
               <p class="card-text" id="current-date"></p>
@@ -38,24 +38,23 @@
           </div>
         </div>
 
-        <div class="card col-5 transparency">
+        <div class="card col-6 transparency">
           <h3>Temperature</h3>
-           <div class="row">
-          <div class="card-body col-6" >
+        <div class="row">
+          <div class="card-body col-2 float-left" >
             <img src="" id="weather-icon" alt="">
-            
           </div>
 
-        <div class="card-body col-6">
-          <ul class="temperature-description-box">
-            <li class="card-text" id="current-temp">
-            <strong id="now-temp" class="float-left"></strong>
-            <span class="units">
+          <div class="card-body col-1">
+            <strong id="now-temp"></strong>
+             <span class="units">
               <a href="#" id="celsius" class="active">°C </a>|
               <a href="#" id="fahrenheit">°F </a>
              </span>
-            </li>
+          </div>
 
+          <div class="card-body col-3 float-left">
+           <ul class="temperature-description-box">
              <li class="card-text" id="current-weather-description">
             <span id="now-weather-description"></span>
             </li>
@@ -80,11 +79,11 @@
             </li>
           </ul>
         </div>
-        </div>
-        </div>
+     </div>
+     </div>
 
 
-       <div class="card col transparency">
+       <div class="card col-3 transparency">
         <div class="card-header">
           <h4>Sunrise:</h4>
         </div>

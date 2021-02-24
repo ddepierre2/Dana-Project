@@ -1,3 +1,7 @@
+body {
+  color: #321970;
+}
+
 h1.title {
   text-align: center;
   padding: 20px;
@@ -7,14 +11,17 @@ h2.header {
   padding: 15px;
   margin: 0;
 }
-h1,
-h2,
-h3,
-h4 {
-  color: #321970;
-}
 h3 {
   text-align: center;
+}
+a {
+  cursor: default;
+  text-decoration: none;
+}
+a:hover {
+  color: #f2f2f1;
+  cursor: default;
+  text-decoration: none;
 }
 .container.full-page {
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
@@ -36,7 +43,6 @@ h3 {
 .search-button {
   background-color: #e6b6e5;
   border-radius: 4px;
-  color: #321970;
 }
 .search-button:hover {
   background-color: #321970;
@@ -46,7 +52,6 @@ h3 {
 }
 #current-location-button {
   border-radius: 4px;
-  color: #321970;
   background-color: #e6b6e5;
 }
 #current-location-button:hover {
@@ -61,30 +66,24 @@ h3 {
 .transparency {
   background-color: transparent;
 }
-#now-temp {
-  font-size: x-large;
-}
-a {
-  color: #321970;
-  cursor: default;
-  text-decoration: none;
-}
-a:hover {
-  color: #f2f2f1;
-  cursor: default;
-  text-decoration: none;
-}
 
 .active {
   color: #f2f2f1;
   cursor: default;
 }
 .active:hover {
-  color: black;
+  color: #f2f2f1;
 }
 .open-source-info:hover {
   color: black;
   cursor: pointer;
   transition: 200ms;
   text-decoration: underline;
+}
+.weather-forecast-temperature {
+  text-align: center;
+}
+#now-temp {
+  font-size: 60px;
+  text-align: right;
 }
