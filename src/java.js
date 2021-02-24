@@ -98,7 +98,7 @@ let forecast = null;
 function displayPrecipitation (response){
 console.log(response.data);
   let precipitationElement = document.querySelector("#now-precipitation");
-  precipitationElement.innerHTML = response.data.list[0].pop;
+  precipitationElement.innerHTML = Math.round(response.data.list[0].pop);
 }
 
 function search(city){
