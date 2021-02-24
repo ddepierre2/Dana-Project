@@ -45,6 +45,7 @@ return `${hours}:${minutes}`;
 }
 
 function displayTemperature(response){
+  console.log(response.data);
 let temperatureElement = document.querySelector("#now-temp");
 let cityElement = document.querySelector("#searched-city");
 let weatherDescriptionElement = document.querySelector("#now-weather-description")
@@ -72,6 +73,7 @@ sunsetElement.innerHTML = formatHours(response.data.sys.sunset * 1000);
 }
 
 function displayForecast(response){
+  console.log(response.data);
 let forecastElement = document.querySelector("#forecast");
 forecastElement.innerHTML = null;
 let forecast = null;
@@ -94,6 +96,8 @@ let forecast = null;
     }
     
 }
+
+
 
 function search(city){
 let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
@@ -131,8 +135,8 @@ function findLocation (position) {
 let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
 let lat = position.coords.latitude;
 let lon = position.coords.longitude;
-let unit = `metric`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -157,4 +161,4 @@ celsiusSearch.addEventListener("click", showCelsiusTemp);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", findCurrentPosition);
 
-search ("Laval");
+search ("Vancouver");
