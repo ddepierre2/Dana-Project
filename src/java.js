@@ -65,12 +65,11 @@ weatherDescriptionElement.innerHTML = response.data.weather[0].description;
 dateElement.innerHTML = formatDate(response.data.dt * 1000);
 iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
-sunriseElement.innerHTML = formatDate(response.data.sys.sunrise * 1000);
-sunsetElement.innerHTML = formatDate(response.data.sys.sunset * 1000);
+sunriseElement.innerHTML = formatHours(response.data.sys.sunrise * 1000);
+sunsetElement.innerHTML = formatHours(response.data.sys.sunset * 1000);
 }
 
 function displayForecast(response){
- 
 let forecastElement = document.querySelector("#forecast");
 forecastElement.innerHTML = null;
 let forecast = null;
