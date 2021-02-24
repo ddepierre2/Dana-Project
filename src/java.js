@@ -27,6 +27,12 @@ let currentDay = days[date.getDay()];
 let currentDate = date.getDate();
 let currentMonth = months[date.getMonth()];
 let currentYear = date.getFullYear();
+
+return `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp){
+let date = new Date(timestamp);
 let hours = date.getHours();
 if (hours <10){
   hours = `0${hours}`;
@@ -35,9 +41,7 @@ let minutes = date.getMinutes();
 if (minutes <10){
   minutes = `0${minutes}`;
 }
-
-let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${hours}:${minutes}`;
-return formattedDate;
+return `${hours}:${minutes}`;
 }
 
 function displayTemperature(response){
@@ -56,7 +60,7 @@ celsiusTemperature = response.data.main.temp;
 temperatureElement.innerHTML = Math.round(celsiusTemperature);
 cityElement.innerHTML = response.data.name;
 humidityElement.innerHTML = response.data.main.humidity;
-windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
+windSpeedElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
 weatherDescriptionElement.innerHTML = response.data.weather[0].description;
 dateElement.innerHTML = formatDate(response.data.dt * 1000);
 iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
@@ -65,10 +69,38 @@ sunriseElement.innerHTML = formatDate(response.data.sys.sunrise * 1000);
 sunsetElement.innerHTML = formatDate(response.data.sys.sunset * 1000);
 }
 
+function displayForecast(response){
+ 
+let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML = null;
+let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+      <div class="col-2">
+        <h3>
+        ${formatHours(forecast.dt * 1000)}
+        </h3>
+        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+          alt="icon"  />
+        <div class="weather-forecast-temperature">
+          <strong>${Math.round(forecast.main.temp_max)}°
+          </strong> ${Math.round(forecast.main.temp_min)}°
+        </div>
+      </div>
+  `;
+    }
+    
+}
+
 function search(city){
 let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);
+
+apiUrl=`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForecast);
 }
 
 function searchCity(event){
@@ -123,6 +155,5 @@ celsiusSearch.addEventListener("click", showCelsiusTemp);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", findCurrentPosition);
-
 
 search ("Laval");
