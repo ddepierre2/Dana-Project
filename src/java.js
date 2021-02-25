@@ -95,15 +95,16 @@ let forecast = null;
     }
   
 }
+
+
+
 function displayPrecipitation (response){
-console.log(response.data);
   let precipitationElement = document.querySelector("#now-precipitation");
   precipitationElement.innerHTML = Math.round(response.data.list[0].pop);
 }
 
 function search(city){
 let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
-
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 
@@ -137,7 +138,6 @@ function showCelsiusTemp(event){
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-
 function findLocation (position) {
 let apiKey = "ed8ab9018735ed237ff0af3c6f9509f3";
 let lat = position.coords.latitude;
@@ -145,6 +145,14 @@ let lon = position.coords.longitude;
 
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);
+
+
+apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForecast);
+
+
+  apiUrl=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayPrecipitation);
 }
 
 function findCurrentPosition(){
